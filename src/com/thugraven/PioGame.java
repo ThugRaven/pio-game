@@ -7,6 +7,9 @@ public class PioGame {
     public static void main(String[] args) {
 
         Random rand = new Random();
+        Player player = new Player();
+        player.setName("Ziutek");
+
         int randNum;
         int playerNum;
         int count = 1;
@@ -15,8 +18,10 @@ public class PioGame {
             randNum = rand.nextInt(6) + 1;
             System.out.println("Picking a number...\nDice: " + randNum);
 
-            playerNum = rand.nextInt(6) + 1;
-            System.out.println("Player: " + playerNum);
+//            playerNum = rand.nextInt(6) + 1;
+            playerNum = player.guess();
+
+            System.out.println("Player " + player.getName() + ": " + playerNum);
 
             if(playerNum == randNum){
                 System.out.println("You won! Tries: " + count);
@@ -26,7 +31,6 @@ public class PioGame {
                 System.out.println("You lost! Try again\n");
                 count++;
             }
-
         }
     }
 }
