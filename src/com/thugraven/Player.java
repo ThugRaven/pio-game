@@ -4,7 +4,15 @@ import java.util.Random;
 
 public class Player {
     private Random dice = new Random();
-    private String name;
+    private String name = "Guest";
+
+    public Player(){
+
+    }
+
+    public Player(String name) {
+        setName(name);
+    }
 
     public int guess(){
         return dice.nextInt(6) + 1;
@@ -19,7 +27,7 @@ public class Player {
             this.name = name;
         }
         else{
-            System.out.println("Nieprawidłowe imię!");
+            System.out.println("Invalid  name!");
         }
     }
 

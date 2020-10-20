@@ -7,8 +7,8 @@ public class PioGame {
     public static void main(String[] args) {
 
         Random rand = new Random();
-        Player player = new Player();
-        player.setName("Ziutek");
+        Player player = new Player("Ziutek");
+        //player.setName("Ziutek");
 
         int randNum;
         int playerNum;
