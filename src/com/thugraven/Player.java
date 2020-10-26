@@ -1,9 +1,6 @@
 package com.thugraven;
 
-import java.util.Random;
-
-public class Player {
-    private Random dice = new Random();
+public abstract class Player {
     private String name = "Guest";
 
     public Player(){
@@ -14,15 +11,11 @@ public class Player {
         setName(name);
     }
 
-    public int guess(){
-        return dice.nextInt(6) + 1;
-    }
-
-    public String getName(){
+    public final String getName(){
         return name;
     }
 
-    public void setName(String name){
+    public final void setName(String name){
         if(name != null && !name.isEmpty()){
             this.name = name;
         }
@@ -31,4 +24,5 @@ public class Player {
         }
     }
 
+    public abstract int guess();
 }
