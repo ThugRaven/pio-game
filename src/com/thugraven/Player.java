@@ -16,11 +16,11 @@ public abstract class Player {
     }
 
     public final void setName(String name){
-        if(name != null && !name.isEmpty()){
+        if(name != null && name.matches("^[a-zA-Z0-9\\-_]{5,}$")){
             this.name = name;
         }
         else{
-            System.out.println("Invalid  name!");
+            throw new IllegalArgumentException("Invalid name!");
         }
     }
 

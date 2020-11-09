@@ -10,7 +10,14 @@ public class PioGame {
 //        Player player = new Player("Ziutek");
 //        player.setName("Ziutek");
 
-        PlayerHuman player = new PlayerHuman("Ziutek");
+        Player player = new PlayerHuman();
+
+        try{
+            player.setName("");
+        }
+        catch(IllegalArgumentException e){
+            System.err.println(e.getMessage());
+        }
 
         int randNum;
         int playerNum;
