@@ -15,40 +15,18 @@ public class PioGame {
 
         Player player = new PlayerHuman();
 
-        List<String> list = new ArrayList<>();
-        list.add("jeden");
-        list.add("dwa");
-        list.add("trzy");
-
-        for(int i = 0; i < list.size(); i++){
-            System.out.println(list.get(i));
-        }
-
-        System.out.println("");
-
-        Iterator<String> iterator = list.iterator();
-        while(iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
-
-        System.out.println("");
-
-        for (String s: list){
-            System.out.println(s);
-        }
-
-        System.out.println("");
-
-        try{
+//        try{
             player.setName("Ziutek");
 
             Game game = new Game();
-            game.addPlayer(player);
+            //game.addPlayer(player);
+//            game.addPlayer(new PlayerComp("Bot123"));
+//            game.addPlayer(new PlayerComp("Ziutek"));
             game.play();
-        }
-        catch(IllegalArgumentException e){
-            System.err.println(e.getMessage());
-        }
+//        }
+//        catch(IllegalArgumentException e){
+//            System.err.println(e.getMessage());
+//        }
 
 
 

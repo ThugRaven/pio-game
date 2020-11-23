@@ -1,39 +1,55 @@
 package com.thugraven;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
-    private Player player = null;
+    private List<Player> players = new ArrayList<>();
 
     public Game(){
 
     }
 
     public void addPlayer(Player player){
-        this.player = player;
+        players.add(player);
     }
 
     public void play(){
+        if(players.isEmpty()) {
+            throw new IllegalStateException("You cannot start a game without any players!");
+        }
+
         PlayerComp playerComp = new PlayerComp();
         int randNum;
         int playerNum;
         int count = 1;
 
-        while(true){
+        boolean loop;
+
+        do{
+            System.out.println("###############");
             //randNum = rand.nextInt(6) + 1;
             randNum = playerComp.guess();
             System.out.println("Picking a number...\nDice: " + randNum);
 
-            playerNum = player.guess();
+            loop = true;
 
-            System.out.println("Player " + player.getName() + ": " + playerNum);
+            for(Player player: players){
+                playerNum = player.guess();
 
-            if(playerNum == randNum){
-                System.out.println("You won! Tries: " + count);
-                break;
-            }
-            else{
-                System.out.println("You lost! Try again\n");
-                count++;
+                System.out.println("Player " + player.getName() + ": " + playerNum);
+
+                if(playerNum == randNum){
+                    System.out.println("You won! Tries: " + count);
+                    loop = false;
+                    break;
+                }
+                else{
+                    System.out.println("You lost! Try again\n");
+                    count++;
+                }
             }
         }
+        while(loop);
     }
 }
