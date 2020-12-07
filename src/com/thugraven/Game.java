@@ -8,9 +8,10 @@ import java.util.Random;
 public class Game {
     private List<Player> players = new ArrayList<>();
     private Random rand = new Random();
+    private Statistics stats;
 
-    public Game(){
-
+    public Game(Statistics stats){
+        this.stats = stats;
     }
 
     public void addPlayer(Player player){
@@ -101,6 +102,8 @@ public class Game {
 
                 if(playerNum == randNum){
                     System.out.println("You won! Tries: " + count);
+                    stats.updateScore(player.getName());
+                    stats.printStats();
                     loop = false;
                     break;
                 }
