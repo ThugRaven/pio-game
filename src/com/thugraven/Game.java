@@ -1,5 +1,10 @@
 package com.thugraven;
 
+import com.thugraven.Player.Player;
+import com.thugraven.Player.PlayerComp;
+import com.thugraven.Statistics.NullStatistics;
+import com.thugraven.Statistics.Statistics;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,8 +15,15 @@ public class Game {
     private Random rand = new Random();
     private Statistics stats;
 
+    public Game(){
+        this(null);
+    }
+
     public Game(Statistics stats){
-        this.stats = stats;
+        if(stats != null){
+            this.stats = stats;
+        }
+        else this.stats = new NullStatistics();
     }
 
     public void addPlayer(Player player){
@@ -88,11 +100,10 @@ public class Game {
         boolean loop;
 
         do{
-            System.out.println("###############");
+            System.out.println("######################");
             //randNum = rand.nextInt(6) + 1;
             randNum = playerComp.guess();
             System.out.println("Picking a number...\nDice: " + randNum);
-
             loop = true;
 
             for(Player player: players){

@@ -1,9 +1,8 @@
 package com.thugraven;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import com.thugraven.Player.Player;
+import com.thugraven.Player.PlayerComp;
+import com.thugraven.Player.PlayerHuman;
 
 public class PioGame {
 
@@ -28,7 +27,7 @@ public class PioGame {
 //        try{
             player.setName("Ziutek");
 
-            Game game = new Game(new Statistics());
+            Game game = new Game();
 //            game.addPlayer(player);
             game.addPlayer(new PlayerComp("Bot123"));
             game.addPlayer(new PlayerComp("Ziutek"));
@@ -39,6 +38,7 @@ public class PioGame {
             for(int i = 0; i < 10; i++){
                 game.play();
             }
+
 //        }
 //        catch(IllegalArgumentException e){
 //            System.err.println(e.getMessage());
