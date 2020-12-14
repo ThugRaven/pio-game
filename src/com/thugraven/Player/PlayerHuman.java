@@ -1,4 +1,4 @@
-package com.thugraven;
+package com.thugraven.Player;
 
 import java.util.Scanner;
 

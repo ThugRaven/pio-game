@@ -1,4 +1,4 @@
-package com.thugraven;
+package com.thugraven.Player;
 
 public abstract class Player {
     private String name = "Guest";
