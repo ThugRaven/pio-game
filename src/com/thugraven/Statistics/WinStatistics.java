@@ -1,19 +1,21 @@
-package com.thugraven;
+package com.thugraven.Statistics;
 
 import java.util.HashMap;
 
-public class Statistics {
+public class WinStatistics implements Statistics {
     private HashMap<String, Integer> stats = new HashMap<>();
 
+    @Override
     public void updateScore(String name){
         int score = stats.getOrDefault(name, 0);
         score++;
         stats.put(name, score);
     }
 
+    @Override
     public void printStats(){
         if(stats.isEmpty()){
-            System.out.println("No wins found!");
+            System.out.println("### No wins found! ###");
             return;
         }
 
@@ -28,6 +30,7 @@ public class Statistics {
         System.out.println("######################");
     }
 
+    @Override
     public void clearStats(){
         stats.clear();
     }
